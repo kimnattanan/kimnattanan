@@ -1,1 +1,0 @@
-[nattanan.kim](https://nattanan.kim)
