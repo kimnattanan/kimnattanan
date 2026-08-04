@@ -4,8 +4,8 @@ export default function DSA(){
   return (
     <div id="dsa" className="lg:mt-0 mt-20">
       <div className="h-20 lg:block hidden"></div>
-      <div className="bg-white/66 w-full rounded-[4rem] sm:rounded-[8rem] px-4 sm:px-12 pb-20">
-        <div className="hidden sm:block topic lg:text-5xl!">
+      <div className="bg-white/66 w-fit mx-auto rounded-[4rem] sm:rounded-[8rem] px-4 sm:px-12 pb-20">
+        <div className="hidden sm:block topic px-12 lg:text-5xl!">
           Data Structures and Algorithms
         </div>
         <div className="sm:hidden topic lg:text-5xl!">
