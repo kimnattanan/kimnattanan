@@ -12,6 +12,7 @@ export default function Work(){
           WORK
         </div>
         <div className="mx-auto flex max-w-3xl flex-col gap-6">
+          <FourPlusPartTime />
           <FourPlusIntern />
           <FeCamp19 />
           <PosnBuuTA />
@@ -59,12 +60,39 @@ function WorkEntry({
   )
 }
 
+function FourPlusPartTime(){
+  return (
+    <WorkEntry
+      company="4Plus Consulting Co., Ltd."
+      date="Aug. 2026 – Present"
+      role="Fullstack Developer (Part-Time)"
+      logo={
+        <div className="relative h-24 w-24 sm:h-28 sm:w-28">
+          <Image
+            src={"/img/work/4plus.png"}
+            width={112}
+            height={112}
+            alt="4Plus Consulting"
+            style={{ objectFit: "contain" }}
+            className="h-full w-full border rounded-xl border-black"
+          />
+        </div>
+      }
+      bullets={[
+        <>
+          Continued full-stack development on the water-management and AI knowledge products after transitioning from intern to part-time.
+        </>,
+      ]}
+    />
+  )
+}
+
 function FourPlusIntern(){
   return (
     <WorkEntry
       company="4Plus Consulting Co., Ltd."
-      date="Jun. 2026 – Present"
-      role="Fullstack Developer Internship"
+      date="Jun. 2026 – Jul. 2026"
+      role="Fullstack Developer (Intern)"
       logo={
         <div className="relative h-24 w-24 sm:h-28 sm:w-28">
           <Image

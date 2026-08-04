@@ -10,9 +10,9 @@ import { SiGithub } from 'react-icons/si';
 
 function LinkContainer() {
   return (
-    <div className="flex justify-center flex-wrap">
+    <div className="flex justify-center lg:justify-start flex-wrap items-center gap-y-2">
       <Link
-        className="content-center my-2` hover:opacity-50 sm:text-2xl"
+        className="content-center hover:opacity-50 sm:text-2xl"
         href={"/files/resume_nattanan.pdf"}
         download="resume_nattanan.pdf"
       >
@@ -21,7 +21,7 @@ function LinkContainer() {
           <FaFilePdf className='inline-block ml-2 mb-1'/>
         </div>
       </Link>
-      <div className="flex my-2">
+      <div className="flex">
         <Link
           className="mx-2 content-center hover:opacity-50"
           href='https://github.com/KimNattanan'
@@ -67,63 +67,52 @@ function LinkContainer() {
   );
 }
 
+function HeroImage({ className }: { className?: string }) {
+  return (
+    <div className={`relative overflow-hidden shrink-0 ${className ?? ''}`}>
+      <Image
+        alt="profile"
+        src="/img/prof2.jpg"
+        fill
+        className="object-cover object-top"
+        priority
+      />
+    </div>
+  );
+}
+
 export default function Home() {
   return (
     <>
-      <div className="lg:mx-10 xl:mx-20 lg:flex lg:flex-row">
-        <div className="grow lg:pr-10 xl:pr-20 lg:pt-20 pt-6 sm:pb-6 pb-4">
-          <div className="text-[1.43rem] sm:text-4xl xl:text-5xl font-black text-center text-glow">
-            Nattanan Jeungtanasirikul
-          </div>
-          <div className="text-sm leading-4 sm:text-base text-center sm:mt-2 lg:text-xl font-bold text-blue1 text-glow">
-            Computer Engineering student at <span className=" text-nowrap">Chulalongkorn University</span>
-          </div>
-          <div className="lg:block hidden font-black mx-auto w-fit text-3xl text-black mt-16 text-glow">{`I'm Kim`}</div>
-          <div className="hidden lg:block w-fit mx-auto space-y-2 mt-6 text-lg text-center text-glow">
-            <p>Interest in building reliable, efficient software.</p>
-            <p>Love practicing competitive programming.</p>
-          </div>
-          <div className="hidden lg:block mt-20">
-            <LinkContainer/>
-          </div>
-        </div>
-        <div className="hidden lg:block aspect-9/16 h-[calc(100vh-5rem)] mx-auto relative shrink-0 overflow-hidden rounded-[4rem]">
-          <Image
-            alt="profile"
-            src={'/img/prof.jpg'}
-            fill
-            style={{
-              objectFit: 'cover',
-            }}
-          />
-        </div>
-        <div className="lg:hidden">
-          <div className="flex">
-            <div className="grow px-4 sm:px-6">
-              <div className="font-black mx-auto w-fit text-2xl text-black mt-10 sm:mt-20 sm:text-3xl text-glow">{`I'm Kim`}</div>
-              <div className="w-fit mx-auto space-y-6 mt-12 text-xs sm:text-lg text-center text-glow">
-                <p>
-                  <span className="text-nowrap">Interest in building reliable, </span>
-                  <wbr/>
-                  <span className="text-nowrap">efficient software.</span>
-                </p>
-                <p><span className="text-nowrap">Love practicing </span><wbr/><span className="text-nowrap">competitive programming.</span></p>
-              </div>
-              <div className="mt-14 sm:mt-32">
-                <LinkContainer/>
-              </div>
+      <section className="lg:mx-10 xl:mx-20 px-4 sm:px-6">
+        <div className="lg:flex lg:items-center lg:gap-12 xl:gap-20 lg:min-h-[calc(100vh-5rem)]">
+          <div className="grow flex flex-col justify-center lg:py-16 pt-6 pb-10 lg:pr-6 xl:pr-12">
+            <HeroImage className="lg:hidden mx-auto mb-8 w-44 sm:w-52 aspect-3/4 rounded-4xl sm:rounded-[2.5rem] shadow-lg shadow-black/10" />
+
+            <h1 className="text-[1.75rem] sm:text-4xl xl:text-5xl font-black text-center lg:text-left text-glow leading-tight">
+              Nattanan Jeungtanasirikul
+            </h1>
+            <p className="mt-2 text-sm sm:text-base lg:text-xl font-bold text-blue1 text-center lg:text-left text-glow">
+              Computer Engineering student at{' '}
+              <span className="text-nowrap">Chulalongkorn University</span>
+            </p>
+
+            <p className="mt-8 sm:mt-10 font-black text-2xl sm:text-3xl text-center lg:text-left text-glow">
+              {`I'm Kim`}
+            </p>
+            <div className="mt-4 space-y-2 text-sm sm:text-lg text-center lg:text-left text-glow max-w-md mx-auto lg:mx-0">
+              <p>Interest in building reliable, efficient software.</p>
+              <p>Love practicing competitive programming.</p>
             </div>
-            <div className="w-[40vw] h-[300px] sm:w-[40vw] sm:h-[500px] relative shrink-0 overflow-hidden rounded-3xl sm:rounded-[4rem]">
-              <Image
-                alt="profile"
-                src={'/img/prof.jpg'}
-                fill
-                className="object-cover"
-              />
+
+            <div className="mt-10 sm:mt-12">
+              <LinkContainer />
             </div>
           </div>
+
+          <HeroImage className="hidden lg:block aspect-9/16 h-[min(calc(100vh-5rem),820px)] rounded-[4rem] shadow-xl shadow-black/10" />
         </div>
-      </div>
+      </section>
       <Work/>
       <Projects/>
       <DSA/>
