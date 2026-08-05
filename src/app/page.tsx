@@ -101,8 +101,8 @@ export default function Home() {
               {`I'm Kim`}
             </p>
             <div className="mt-4 space-y-2 text-sm sm:text-lg text-center lg:text-left text-glow max-w-md mx-auto lg:mx-0">
-              <p>Interest in building reliable, efficient software.</p>
-              <p>Love practicing competitive programming.</p>
+              <p>Building reliable software,</p>
+              <p>sharpening algorithms along the way.</p>
             </div>
 
             <div className="mt-10 sm:mt-12">
