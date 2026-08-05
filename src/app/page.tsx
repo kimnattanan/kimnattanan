@@ -72,7 +72,7 @@ function HeroImage({ className }: { className?: string }) {
     <div className={`relative overflow-hidden shrink-0 ${className ?? ''}`}>
       <Image
         alt="profile"
-        src="/img/prof2.jpg"
+        src="/img/prof.jpg"
         fill
         className="object-cover object-top"
         priority
