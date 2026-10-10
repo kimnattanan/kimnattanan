@@ -80,7 +80,7 @@ function FourPlusPartTime(){
       }
       bullets={[
         <>
-          Continued full-stack development on the water-management and AI knowledge products after transitioning from intern to part-time.
+          Built the competency system for a multi-tenant AI knowledge management platform, including a skill catalog and proficiency scale, individual skill levels, role requirements, and links from knowledge-base documents to the skills they teach.
         </>,
       ]}
     />
@@ -92,7 +92,7 @@ function FourPlusIntern(){
     <WorkEntry
       company="4Plus Consulting Co., Ltd."
       date="Jun. 2026 – Jul. 2026"
-      role="Fullstack Developer (Intern)"
+      role="Fullstack Developer Internship"
       logo={
         <div className="relative h-24 w-24 sm:h-28 sm:w-28">
           <Image
@@ -107,7 +107,7 @@ function FourPlusIntern(){
       }
       bullets={[
         <>
-          Built the full-stack AI water-management web application, collaborating with the data engineering team, owning the <span className="text-red2 font-bold">React</span>/<span className="text-red2 font-bold">Express</span> UI and API layer, implementing auth, RBAC, and data ingestion workflows, and working directly with the client to gather requirements and feedback.
+          Built the full-stack AI water-management web application, collaborating with the data engineering team, owning the React/Express UI and API, designing operational dashboards and water network diagram, implementing auth, RBAC, and data ingestion workflows, and working directly with the client to gather requirements and feedback.
         </>,
         <>
           Contributed to a multi-tenant AI knowledge full-stack development, designed the database schema and sync flow for multi-provider cloud-drive integration, optimized document-processing costs for Google Vision OCR.
@@ -121,7 +121,7 @@ function FeCamp19(){
   return (
     <WorkEntry
       company="FECamp19"
-      date="Oct. 2025 – May. 2026"
+      date="Oct. 2025 – May 2026"
       role="Senior Backend"
       logo={
         <div className="relative h-24 w-24 sm:h-28 sm:w-28">
@@ -137,7 +137,10 @@ function FeCamp19(){
       }
       bullets={[
         <>
-          Led backend development of a Learning Management System using <span className="text-red2 font-bold">Java</span> and <span className="text-red2 font-bold">Spring Boot</span>, designing RESTful APIs, role-based access control, and course management modules for a platform used by approximately 500 users.
+          Design and built the backend of a learning management system using <span className="text-red2 font-bold">Java</span> and <span className="text-red2 font-bold">Spring Boot</span>, including RESTful APIs, role-based access control, and course management, for a platform used by approximately 500 users.
+        </>,
+        <>
+          Delivered classroom announcements, document uploads, attendance tracking, pre-test and post-test scoring and statistics, and a subject Q&A module
         </>,
       ]}
     />

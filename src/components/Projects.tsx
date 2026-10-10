@@ -4,16 +4,16 @@ import Link from "next/link";
 const skillTagTitles = [
   "C++",
   "Next.js", "TypeScript", "Socket.IO", "TailwindCSS",
-  "Go", "Fiber v2", "Echo", "GORM", "Gorilla Mux", "Node.js",
-  "Docker", "AWS", "gRPC", "WebSocket", "RabbitMQ", "PostgreSQL", "Redis", "MongoDB", "WebRTC", "MediaPipe"
+  "Go", "Fiber v2", "Chi", "Echo", "GORM", "Gorilla Mux", "Node.js",
+  "Docker", "AWS", "gRPC", "WebSocket", "RabbitMQ", "PostgreSQL", "Memgraph", "Redis", "MongoDB", "WebRTC", "MediaPipe",
 ]
 
-const projectTitleClass = "text-[16px] font-bold text-center";
+const projectTitleClass = "text-[16px] font-bold text-left";
 const projectDescClass = "mt-2 text-[14px] leading-6 tracking-normal font-normal font-[system-ui,sans-serif]";
-const projectImageWrapClass = "flex justify-center p-2 shrink-0";
-const projectImageClass = "h-40 w-auto max-w-[100%] object-contain";
-const projectCardClass = "relative sm:w-[400px] mx-auto flex h-full flex-col";
-const projectContentClass = "bg-white py-4 px-5 mb-2 flex flex-1 flex-col rounded-md border border-stone-200";
+const projectImageWrapClass = "relative h-24 w-24 shrink-0 sm:h-36 sm:w-36";
+const projectImageClass = "h-full w-full object-contain";
+const projectCardClass = "relative flex w-full flex-row items-center gap-3 sm:gap-5";
+const projectContentClass = "min-w-0 flex-1 bg-white py-4 px-4 sm:px-5 flex flex-col rounded-md border border-stone-200";
 
 function SkillTag({ title, color='#e45099', bgColor='transparent' }:{ title: string, color?: string, bgColor?: string }){
   if (!skillTagTitles.includes(title)) {
@@ -31,28 +31,64 @@ function SkillTag({ title, color='#e45099', bgColor='transparent' }:{ title: str
 
 export default function Projects(){
   return (
-    <div id="projects" className="lg:mt-0 mt-20">
+    <div id="projects" className="lg:mt-0 mt-20 px-3 sm:px-6">
       <div className="h-20 lg:block hidden"></div>
-      <div className="bg-white/66 w-fit mx-auto rounded-[4rem] sm:rounded-[8rem] px-8 sm:px-12 pb-12">
+      <div className="bg-white/66 mx-auto w-full max-w-5xl rounded-[4rem] sm:rounded-[8rem] px-5 sm:px-12 pb-12">
         <div className="topic">
           PROJECTS
         </div>
-        <div className="lg:grid lg:grid-cols-2 lg:items-stretch lg:gap-x-4 lg:gap-y-2">
+        <div className="mx-auto flex w-full max-w-4xl flex-col gap-6">
+          <ProjectGraphRAGService/>
           <ProjectGoChatBackend/>
-          <div className="block lg:hidden sm:mx-6 border-b-2 border-dotted"></div>
           <ProjectSpellCam/>
-          <div className="sm:mx-6 border-b-2 border-dotted"></div>
-          <div className="hidden lg:block sm:mx-6 border-b-2 border-dotted"></div>
-          <ProjectExprec/>
-          <div className="block lg:hidden sm:mx-6 border-b-2 border-dotted"></div>
           <ProjectCleanGoUserService/>
-          <div className="sm:mx-6 border-b-2 border-dotted"></div>
-          <div className="hidden lg:block sm:mx-6 border-b-2 border-dotted"></div>
           <ProjectCPPLibrary/>
         </div>
       </div>
     </div>
   )
+}
+
+function ProjectGraphRAGService(){
+  return (
+    <div className={projectCardClass}>
+      <div className={projectImageWrapClass}>
+        <Image
+          src={"/img/projects/graph-rag-service-thumb.png"}
+          width={256}
+          height={256}
+          alt="graph-rag-service"
+          style={{ objectFit: "contain" }}
+          className={`${projectImageClass} border-black`}
+        />
+      </div>
+      <div className={projectContentClass}>
+        <div className={projectTitleClass}>
+          Graph RAG Service
+        </div>
+        <div className={`${projectDescClass} flex-1`}>
+          Graph RAG Service answers questions from a knowledge graph in <span className="text-red2 font-bold">{`Memgraph`}</span>.
+          A worker job chunks each document, extracts its entities, and embeds the chunks and entities, so that they can be retrieved with <span className="text-red2 font-bold">{`vector search`}</span>.
+          User, Knowledge, and Conversation are separate services, built with domain-driven design, clean architecture, and <span className="text-red2 font-bold">{`CQRS`}</span>.
+        </div>
+        <div className="flex mt-3 flex-wrap">
+          <SkillTag title="Go"/>
+          <SkillTag title="Chi"/>
+          <SkillTag title="gRPC"/>
+          <SkillTag title="Memgraph"/>
+          <SkillTag title="PostgreSQL"/>
+          <SkillTag title="Docker"/>
+        </div>
+        <div className='mt-3 flex justify-end text-sm font-semibold text-blue2'>
+          <Link href={"https://github.com/kimnattanan/graph-rag-service"} target='_blank'>
+            <div className='w-fit underline underline-offset-2 cursor-pointer hover:opacity-50'>
+              Learn more
+            </div>
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 function ProjectGoChatBackend(){
@@ -65,7 +101,7 @@ function ProjectGoChatBackend(){
           height={256}
           alt="go-chat-backend"
           style={{ objectFit: "contain" }}
-          className={`${projectImageClass} border-black`}
+          className={`${projectImageClass} border rounded-full border-black`}
         />
       </div>
       <div className={projectContentClass}>
@@ -86,8 +122,8 @@ function ProjectGoChatBackend(){
           <SkillTag title="GORM"/>
           <SkillTag title="Docker"/>
         </div>
-        <div className='mt-3 flex justify-center text-sm font-semibold text-blue2'>
-          <Link href={"https://github.com/KimNattanan/go-chat-backend"} target='_blank'>
+        <div className='mt-3 flex justify-end text-sm font-semibold text-blue2'>
+          <Link href={"https://github.com/kimnattanan/go-chat-backend"} target='_blank'>
             <div className='w-fit underline underline-offset-2 cursor-pointer hover:opacity-50'>
               Learn more
             </div>
@@ -128,9 +164,10 @@ function ProjectSpellCam(){
           <SkillTag title="WebRTC"/>
           <SkillTag title="MongoDB"/>
           <SkillTag title="MediaPipe"/>
+          <SkillTag title="AWS"/>
         </div>
-        <div className='mt-3 flex justify-center text-sm font-semibold text-blue2'>
-          <Link href={"https://github.com/KimNattanan/spellcam"} target='_blank'>
+        <div className='mt-3 flex justify-end text-sm font-semibold text-blue2'>
+          <Link href={"https://github.com/kimnattanan/spellcam"} target='_blank'>
             <div className='w-fit underline underline-offset-2 cursor-pointer hover:opacity-50'>
               Learn more
             </div>
@@ -151,7 +188,7 @@ function ProjectCleanGoUserService(){
           height={375}
           alt="go-user-service"
           style={{ objectFit: "contain" }}
-          className={`${projectImageClass} border rounded-full border-black`}
+          className={`${projectImageClass} border-black`}
         />
       </div>
       <div className={projectContentClass}>
@@ -169,51 +206,8 @@ function ProjectCleanGoUserService(){
           <SkillTag title="Redis"/>
           <SkillTag title="Docker"/>
         </div>
-        <div className='mt-3 flex justify-center text-sm font-semibold text-blue2'>
-          <Link href={"https://github.com/KimNattanan/go-user-service"} target='_blank'>
-            <div className='w-fit underline underline-offset-2 cursor-pointer hover:opacity-50'>
-              Learn more
-            </div>
-          </Link>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function ProjectExprec(){
-  return (
-    <div className={projectCardClass}>
-      <div className={projectImageWrapClass}>
-        <Image
-          src={"/img/projects/exprec-thumb.png"}
-          width={492}
-          height={740}
-          alt="exprec"
-          style={{ objectFit: "contain" }}
-          className={`${projectImageClass} border rounded-xl border-black`}
-        />
-      </div>
-      <div className={projectContentClass}>
-        <div className={projectTitleClass}>
-          Exprec - Expense Tracking Website
-        </div>
-        <div className={`${projectDescClass} flex-1`}>
-          A simple expense-tracking web application with a summary dashboard. Built with Next.js for the frontend and a Go backend using <span className="text-red2 font-bold">Fiber v2</span> and GORM.
-        </div>
-        <div className="flex mt-3 flex-wrap">
-          <SkillTag title="Next.js"/>
-          <SkillTag title="TypeScript"/>
-          <SkillTag title="TailwindCSS"/>
-          <SkillTag title="Go"/>
-          <SkillTag title="Fiber v2"/>
-          <SkillTag title="GORM"/>
-          <SkillTag title="PostgreSQL"/>
-          <SkillTag title="Docker"/>
-          <SkillTag title="AWS"/>
-        </div>
-        <div className='mt-3 flex justify-center text-sm font-semibold text-blue2'>
-          <Link href={"https://github.com/KimNattanan/exprec-backend"} target='_blank'>
+        <div className='mt-3 flex justify-end text-sm font-semibold text-blue2'>
+          <Link href={"https://github.com/kimnattanan/go-user-service"} target='_blank'>
             <div className='w-fit underline underline-offset-2 cursor-pointer hover:opacity-50'>
               Learn more
             </div>
@@ -247,8 +241,8 @@ function ProjectCPPLibrary(){
         <div className="flex mt-3 flex-wrap">
           <SkillTag title="C++"/>
         </div>
-        <div className='mt-3 flex justify-center text-sm font-semibold text-blue2'>
-          <Link href={"https://github.com/KimNattanan/compet"} target='_blank'>
+        <div className='mt-3 flex justify-end text-sm font-semibold text-blue2'>
+          <Link href={"https://github.com/kimnattanan/compet"} target='_blank'>
             <div className='w-fit underline underline-offset-2 cursor-pointer hover:opacity-50'>
               Learn more
             </div>
